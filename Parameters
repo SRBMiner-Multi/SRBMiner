@@ -1,0 +1,204 @@
+Generic parameters:
+
+--algorithm value               (algorithm/s to use, separate values with ;)
+--api-enable                    (enable statistics API)
+--api-port value                (port where statistics API is reachable - default 21550)
+--api-rig-name value            (identifier name for your rig in statistics API)
+--api-rig-restart-url value     (user defined url which accessed in browser triggers computer restart)
+--api-miner-restart-url value   (user defined url which accessed in browser triggers miner restart)
+--api-rig-shutdown-url value    (user defined url which accessed in browser triggers computer shutdown)
+--background                    (run miner in background, without console window)
+--bc250                         (enable support for AMD BC-250 mining cards [Linux]
+--busy-wait-recheck             (NVIDIA and INTEL, sets the busy wait recheck value per algorithm, separate values with ; [min 0.01, max 0.99])
+--disable-cpu                   (disable cpu mining)
+--disable-gpu                   (disable gpu mining)
+--disable-gpu-amd               (disable gpu mining with AMD gpu's)
+--disable-gpu-nvidia            (disable gpu mining with NVIDIA gpu's)
+--disable-gpu-intel             (disable gpu mining with INTEL gpu's)
+--disable-gpu-dual-kernels      (disable usage of optimised dual kernels)
+--disable-extranonce-subscribe  (don't send mining.extranonce.subscribe to pool)
+--disable-worker-watchdog       (disable crash detection)
+--disable-ptx-check             (disable nvidia ptx version check)
+--enable-restart-on-rejected    (enable miner auto restart on too many rejected shares. Set number with --max-rejected-shares)
+--enable-workers-ramp-up        (enable GPU workers slow start)
+--extended-log                  (enable more informative logging)
+--forced-shutdown               (never try to free resources on restart/shutdown)
+--give-up-limit value           (number of times to try connecting to a pool before switching to the next pool)
+--gpu-errors-alert value        (notify when number of result validation errors for any GPU reaches this value [def. is 0 - disabled])
+--gpu-sensors-disable           (disable reading of GPU sensors)
+--list-algorithms               (list available algorithms)
+--list-devices                  (list available gpu devices)
+--log-file filename             (enable logging to file)
+--log-file-mode value           (defines logging mode, 0-2 [def. is 0 - truncate])
+--main-pool-reconnect value     (time, how often to try to reconnect back to the main pool. def. is 10 minutes, min. is 2 minutes)
+--max-no-submit-responses value (max number of no-responses from pool to our submit messages before reconnecting [def. is 10])
+--max-no-share-sent value       (time, if no share is accepted from the pool for x time, restarts miner [def. is 0 - disabled])
+--max-rejected-shares value     (max number of allowed rejected shares on a connection. def. is 15 if '--enable-restart-on-rejected' option enabled)
+--miner-priority value          (main process priority, 1-5 where 5 is highest [def. is 3 - normal])
+--proxy value                   (ip:port or user:password@ip:port of socks5 proxy)
+--randomx-use-1gb-pages         (Allocate 1GB sized pages)
+--reboot-script-gpu-watchdog    (filename, if set it turns off built in restart procedure on gpu failure, and instead runs this script)
+--retry-time value              (time, how much to wait before trying to reconnect to a pool)
+--set-compute-mode              (sets AMD gpu's to compute mode & disables crossfire - run as admin)
+--set-console-title value       (sets custom title to miner console window)
+--setup                         (interactive mode to create basic configuration)
+--startup-script filename       (run custom script on miner start - set clocks, voltage, etc.)
+--shutdown-temperature value    (if this temperature is reached on any GPU, miner will shutdown system)
+--verthash-dat-path value       (verthash.dat location, if not using default)
+
+
+Cpu parameters
+
+--cpu-threads                   (number of cpu threads to use for mining, separate values with ';')
+--cpu-threads-intensity value   (hashes per worker thread, can be 1, 2 or 4. Def. is 1, separate values with ',')
+--cpu-threads-priority value    (worker thread priority, 1-5 where 5 is highest (def. is 2), separate values with ';')
+--cpu-affinity value            (thread affinity bitmask, hex or decimal value, separate values with ';')
+--cpu-numa-bind value           (force binding of CPU worker threads to a specific NUMA node, separate values with ';')
+--disable-auto-affinity         (disable auto affinity setup)
+--disable-huge-pages            (disable usage of huge pages)
+--disable-msr-tweaks            (disable MSR tweaks(def. is enabled)
+--disable-numa-binding          (disable auto binding to NUMA node/s)
+--force-msr-tweaks              (force usage of MSR tweaks
+--msr-use-preset value          (defines MSR preset to use 0-3)
+--msr-use-tweaks value          (defines MSR tweaks to use 0-4, | 0 - Intel, 0,1,2,3,4 - AMD |)
+
+
+Gpu parameters
+
+--gpu-id value                  (gpu id/s from --list-devices, separate values with ',')
+--gpu-intensity value           (gpu intensity, 0-31 or if > 31 it's treated as raw intensity, separate values with ',')
+--gpu-extra-config value        (additional config for some algorithms, separate values with ',')
+--gpu-off-temperature value     (gpu turn off temperature, separate values with ',')
+--gpu-progpow-mode value        (1, 2 or 3. Sets how progpow program is created, separate values with ',')
+--gpu-progpow-safe              (use this if you get a lot of gpu validation errors on progpow algorithms)
+--gpu-table-slow-build          (builds DAG/Datatable slower - might help if GPU's are crashing on DAG/Datatable creation)
+--gpu-dual-max-loss value       (how much loss of A0 hashrate is allowed in auto tune mode for optimized dual mining, in percent [1-95])
+--gpu-disable-interleaving      (disable interleaving of threads when running more than 2 threads per GPU)
+
+
+Gpu OC parameters
+
+--gpu-disable-oc                (disable OC functionality)
+--gpu-reset-oc                  (reset default OC values on miner start [NVIDIA only])
+--gpu-cclock0                   (A0 - set fixed core clock (in MHZ), separate values with ',' [NVIDIA only])
+--gpu-mclock0                   (A0 - set fixed memory clock (in MHZ), separate values with ',' [NVIDIA only])
+--gpu-coffset0                  (A0 - set core clock offset (in MHZ), separate values with ',' [NVIDIA only])
+--gpu-moffset0                  (A0 - set memory clock offset (in MHZ), separate values with ',' [NVIDIA only])
+--gpu-plimit0                   (A0 - set power management limit (in W), separate values with ',' [NVIDIA only])
+--gpu-fan0                      (A0 - set fan speed (in %), separate values with ',' [NVIDIA only])
+--gpu-cclock1                   (A1 - set fixed core clock (in MHZ), separate values with ',' [NVIDIA only])
+--gpu-mclock1                   (A1 - set fixed memory clock (in MHZ), separate values with ',' [NVIDIA only])
+--gpu-coffset1                  (A1 - set core clock offset (in MHZ), separate values with ',' [NVIDIA only])
+--gpu-moffset1                  (A1 - set memory clock offset (in MHZ), separate values with ',' [NVIDIA only])
+--gpu-plimit1                   (A1 - set power management limit (in W), separate values with ',' [NVIDIA only])
+--gpu-fan1                      (A1 - set fan speed (in %), separate values with ',' [NVIDIA only])
+--zil-cclock                    (ZIL - set fixed core clock (in MHZ), separate values with ',' [NVIDIA only])
+--zil-mclock                    (ZIL - set fixed memory clock (in MHZ), separate values with ',' [NVIDIA only])
+--zil-coffset                   (ZIL - set core clock offset (in MHZ), separate values with ',' [NVIDIA only])
+--zil-moffset                   (ZIL - set memory clock offset (in MHZ), separate values with ',' [NVIDIA only])
+--zil-plimit                    (ZIL - set power management limit (in W), separate values with ',' [NVIDIA only])
+--zil-fan                       (ZIL - set fan speed (in %), separate values with ',' [NVIDIA only])
+--a0-oc-script filename         (run script when algorithm 0 becomes active - set OC)
+--a1-oc-script filename         (run script when algorithm 1 becomes active - set OC)
+--zil-oc-script filename        (run script when ZIL mining becomes active - set OC)
+--oc-delay value                (delay in seconds after A0, A1 or ZIL OC was applied. Def. is 3, max is 120)
+
+
+Pool parameters
+
+--pool value                    (pool address:port, separate values with ',')
+--wallet value                  (user wallet address, separate values with ',')
+--worker value                  (worker name or rig id, separate values with ',')
+--password value                (pool password, separate values with ; and ! [use #; and #! to escape separator characters])
+--diff-factor value             (custom difficulty multiplier, separate values with ',')
+--tls value                     (use TLS, true or false, separate values with ',')
+--esm value                     (ethash stratum mode [0 (getwork), 1 (ethereumstratum 1.0), 2 (ethereumstratum 1.0 + nicehash)], separate values with ',')
+--nicehash value                (force nicehash, true or false, separate values with ',')
+--job-timeout value             (time, if no job received for this period, miner will reconnect. Disabled by default, separate values with ',')
+--keepalive value               (true or false, not every pool supports this, separate values with ',')
+--send-stales value             (send stale shares to pool, true or false, separate values with ',')
+
+
+ZIL mining parameters
+
+--zil-enable                    (enable ZIL only mining)
+--zil-epoch value               (ZIL epoch number. Default is 1)
+--zil-pool value                (ZIL pool address:port, separate values with ',')
+--zil-wallet value              (ZIL wallet address, separate values with ',')
+--zil-password value            (ZIL pool password, separate values with ',')
+--zil-esm value                 (ZIL pool ethereum stratum mode, separate values with ',')
+
+
+Parameter aliases
+
+--algorithm                     -a
+--cpu-threads                   -t
+--password                      -p
+--pool                          -o
+--wallet                        -u
+: Parameters that take a TIME value must be set in SECONDS!
+
+Note:
+If you want to apply different values for GPU's (OC or any other parameter that sets some GPU value), you need to specify the GPU's you are using with '--gpu-id' parameter.
+For example:
+... --gpu-id 0,1,2,3,4 --gpu-intensity 100,200,300,400,500 --gpu-cclock 1300,1400,1500,1600
+
+==================================================================================================================
+
+--log-file-mode:
+0 - clear content of existing log file before writing
+1 - append to existing log file's end
+2 - add datetime stamp to log's name so it creates a new log file on every miner start
+
+
+--cpu-numa-bind:
+Bind CPU worker threads to NUMA node id 1 (second NUMA node) with auto thread selection and affinity mask:
+--algorithm ... --pool ... --wallet ... --cpu-numa-bind 1
+
+Bind CPU worker threads to NUMA node id 1 (second NUMA node) with manually set number of threads and affinity mask:
+--algorithm ... --pool ... --wallet ... --cpu-threads 8 --cpu-affinity 0x5555 --cpu-numa-bind 1
+
+
+--esm:
+0 - getwork/ETHPROXY
+1 - EthereumStratum/1.0.0
+2 - EthereumStratum/1.0.0 + nicehash mode
+
+
+--msr-use-preset:
+can be used to select from 3 predefined presets (0,1,2) of register values. If not used, preset is auto selected.
+If combined with --msr-use-tweaks parameter, you will use values from the defined preset.
+
+
+--gpu-progpow-mode:
+1 - Use kernel 1. This kernel uses VRAM for DAG only
+2 - Use kernel 2. This kernel uses VRAM for DAG and ~+150-200mb (depends from used intensity)
+3 - Use kernel 3. This kernel uses VRAM for DAG and ~+300-500mb (depends from used intensity)
+
+
+
+==================================================================================================================
+API
+
+Api has two interfaces : json and gui (over http)
+
+To use it you must enable it first, by using the --api-enable parameter.
+Set your rig name with --api-rig-name rig_name.
+
+After you started the miner, you can access the GUI stats in your browser :
+http://127.0.0.1:21550/stats
+
+Or the json : http://127.0.0.1:21550
+
+
+There are also three other parameters that can help you to restart miner, reboot or shutdown your machine remotely :
+
+--api-rig-restart-url
+This should be a unique string, which accessed in browser results in a computer restart. Miner needs to have admin privileges.
+
+--api-rig-shutdown-url
+This should be a unique string, which accessed in browser results in a computer shutdown. Miner needs to have admin privileges.
+
+--api-miner-restart-url
+This should be a unique string, which accessed in browser restarts SRBMiner-MULTI.
+
